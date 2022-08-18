@@ -24,6 +24,7 @@ public class EmployeeDBContext extends DBContext {
     public ArrayList<Employee> getEmployees(Date begin, Date end) {
     ArrayList<Employee> employees = new ArrayList<>();
         try {
+            //truy van
             String sql = "SELECT e.eid,e.ename,ISNULL(t.tid,-1) tid,t.checkin,t.checkout\n"
                     + "                    FROM Employee e\n"
                     + "                    	LEFT JOIN (SELECT * FROM Timesheet WHERE \n"
@@ -34,12 +35,14 @@ public class EmployeeDBContext extends DBContext {
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setTimestamp(1, DateEtOEt.getTimeStamp(DateEtOEt.removeTime(begin)));
             stm.setTimestamp(2, DateEtOEt.getTimeStamp(DateEtOEt.removeTime(end)));
+            //query
             ResultSet rs = stm.executeQuery();
             Employee curEmp = new Employee();
             curEmp.setId(-1);
             while (rs.next()) {
                 int eid = rs.getInt("eid");
                 if (eid != curEmp.getId()) {
+                    //add vao list employee
                     curEmp = new Employee();
                     curEmp.setId(eid);
                     curEmp.setName(rs.getString("ename"));
