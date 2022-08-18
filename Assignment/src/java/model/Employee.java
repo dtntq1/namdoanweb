@@ -4,11 +4,53 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author NamDoan
  */
 public class Employee {
-    String name;
+    private int id;
+    private String name;
+    private ArrayList<TimeSheet> timesheets = new ArrayList<>();
+    
+    public int getNumberOfWorkingDays()
+    {
+        return timesheets.size();
+    }
+    
+    public float getNumberOfWorkingHours()
+    {
+        float sum = 0;
+        for (TimeSheet timesheet : timesheets) {
+            sum+= timesheet.getWorkingHours();
+        }
+        return sum;
+    }
+    
+    public ArrayList<TimeSheet> getTimesheets() {
+        return timesheets;
+    }
+
+    public void setTimesheets(ArrayList<TimeSheet> timesheets) {
+        this.timesheets = timesheets;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
 }
