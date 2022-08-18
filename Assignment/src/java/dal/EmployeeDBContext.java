@@ -53,8 +53,8 @@ public class EmployeeDBContext extends DBContext {
                     TimeSheet t = new TimeSheet();
                     t.setEmployee(curEmp);
                     t.setId(tid);
-                    t.setCheckin(DateEtOEt.getDateFrom(rs.getTimestamp("checkin")));
-                    t.setCheckout(DateEtOEt.getDateFrom(rs.getTimestamp("checkout")));
+//                    t.setCheckin(DateEtOEt.getDateFrom(rs.getTimestamp("checkin")));
+//                    t.setCheckout(DateEtOEt.getDateFrom(rs.getTimestamp("checkout")));
                     curEmp.getTimesheets().add(t);
                 }
             }

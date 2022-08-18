@@ -20,14 +20,14 @@ public class Employee {
         return timesheets.size();
     }
     
-    public float getNumberOfWorkingHours()
-    {
-        float sum = 0;
-        for (TimeSheet timesheet : timesheets) {
-            sum+= timesheet.getWorkingHours();
-        }
-        return sum;
-    }
+//    public float getNumberOfWorkingHours()
+//    {
+//        float sum = 0;
+//        for (TimeSheet timesheet : timesheets) {
+//            sum+= timesheet.getWorkingHours();
+//        }
+//        return sum;
+//    }
     
     public ArrayList<TimeSheet> getTimesheets() {
         return timesheets;
